@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Airtable Webhook Trigger</title>
+</head>
+<body style="display:flex; height:100vh; justify-content:center; align-items:center; background:#f9f9f9; font-family:sans-serif;">
+  <button id="trigger" style="padding:15px 30px; font-size:18px; border:none; border-radius:8px; background:#4CAF50; color:white; cursor:pointer;">
+    📦 발주 갱신하기
+  </button>
+
+  <script>
+    document.getElementById("trigger").addEventListener("click", () => {
+      fetch("https://hooks.airtable.com/workflows/v1/genericWebhook/appoRv5rFKmXED59U/wflrVUMCzcUhWqFkK/wtr5QSAVhusyhvHp7", {
+        method: "POST"
+      })
+      .then(() => alert("✅ 웹훅 실행됨!"))
+      .catch(() => alert("⚠️ 실행 실패"));
+    });
+  </script>
+</body>
+</html>
