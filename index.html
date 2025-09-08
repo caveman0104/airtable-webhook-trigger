@@ -6,11 +6,16 @@
   <style>
     body {
       display: flex;
+      flex-direction: column;
+      gap: 20px;
       height: 100vh;
       justify-content: center;
       align-items: center;
       background: #f9f9f9;
       font-family: sans-serif;
+    }
+    form {
+      margin: 0;
     }
     button {
       padding: 15px 30px;
@@ -20,21 +25,37 @@
       background: #4CAF50;
       color: white;
       cursor: pointer;
+      transition: background 0.2s;
     }
     button:hover {
       background: #45a049;
     }
+    .secondary button {
+      background: #2196F3;
+    }
+    .secondary button:hover {
+      background: #1e87db;
+    }
   </style>
 </head>
 <body>
+  <!-- 첫 번째 웹훅 -->
   <form 
     action="https://hooks.airtable.com/workflows/v1/genericWebhook/appoRv5rFKmXED59U/wflrVUMCzcUhWqFkK/wtr5QSAVhusyhvHp7" 
     method="POST" 
     target="_blank"
   >
-    <!-- 필요한 경우 hidden input 추가 -->
-    <!-- <input type="hidden" name="message" value="refresh"> -->
     <button type="submit">📦 발주 갱신하기</button>
+  </form>
+
+  <!-- 두 번째 웹훅 -->
+  <form 
+    action="https://hooks.airtable.com/workflows/v1/genericWebhook/app4B6TFeDMy5KXhl/wflrVUMCzcUhWqFkK/wtr5QSAVhusyhvHp7" 
+    method="POST" 
+    target="_blank"
+    class="secondary"
+  >
+    <button type="submit">🔄 재고 동기화하기</button>
   </form>
 </body>
 </html>
